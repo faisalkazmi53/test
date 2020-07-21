@@ -1,0 +1,14 @@
+<?php
+$product = $block->getProduct();
+$productId = $product->getId();
+$websiteId = 1;  // Current websiteId
+$_helperStock = $this->helper(Test\ProductStatus\Helper\Stock::class);
+?>
+
+<div>
+    <?php if($_helperStock->getStockQty($productId, $websiteId) > 0):?>
+    <div>Stock: Product Is in stock</div>
+    <?php else: ?>
+    <div>Stock: Product Is out of stock</div>
+    <?php endif; ?>
+</div>
